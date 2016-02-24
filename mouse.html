@@ -1,0 +1,97 @@
+<html>
+
+
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+
+c.fillStyle="gray";
+c.fillRect(0,0,600,400);
+
+tela.onclick = function(evento){
+	console.log("Botão Esquerdo");
+	var x = evento.pageX - tela.offsetLeft;
+	var y = evento.pageY - tela.offsetTop;
+	
+	c.fillStyle=("blue");
+	c.beginPath();
+	c.arc(x,y,5,0,2*Math.PI);
+	c.fill();
+	
+	console.log("Posição do Clique:  " + x+ " ," +y);	
+};
+
+tela.oncontextmenu = function(evento){
+	console.log("Botão Direito");
+	var x = evento.pageX - tela.offsetLeft;
+	var y = evento.pageY - tela.offsetTop;
+	
+	c.fillStyle=("red");
+	c.beginPath();
+	c.arc(x,y,5,0,2*Math.PI);
+	c.fill();
+	
+	console.log("Posição do Clique:  " + x+ " ," +y);
+	
+	evento.preventDefault();
+	
+};
+
+
+
+
+/*
+var atiraEsq = function(evento){
+	var x = evento.pageX - tela.offsetLeft;
+	var y = evento.pageY - tela.offsetTop;
+	
+	c.fillStyle="blue";
+	c.beginPath();
+	c.arc(x,y,5,0,2*Math.PI);
+	c.fill();
+	console.log("Posicao do click: " +x+","+y);
+	}
+	
+var atiraDir = function(evento){
+	var x = evento.pageX - tela.offsetLeft;
+	var y = evento.pageY - tela.offsetTop;
+	
+	c.fillStyle="red";
+	c.beginPath();
+	c.arc(x,y,5,0,2*Math.PI);
+	c.fill();
+	console.log("Posicao do click: " +x+","+y);
+	}
+	
+			
+	
+tela.addEventListener('mousedown', function(evento){
+
+switch(evento.which){
+    case 1:
+        console.log("botão esquerdo");
+        tela.onclick = atiraEsq; 
+        break;
+    case 3:
+        console.log("botão direito");
+        tela.oncontextmenu = atiraDir;
+		evento.preventDefaut();
+		
+		evento.preventDefault  serve para evitar abrir a janelinha ao clicar com o botão direito
+			
+		break;
+    default:
+        console.log("mouse estranho");  
+  }
+}, false);
+tela.addEventListener('contextmenu', funtion(event){
+	event.preventDefault();
+}, false);
+
+*/
+</script>
+
+</html>
